@@ -8,11 +8,11 @@ class SPBU {
   public:
     SPBU();
     
-    string showBensin(int jenis){
-      if (jenis == 1)
+    string showBensin(string jenis){
+      if (jenis == "1")
       {
         return "Pertalite";
-      } else if(jenis == 2){
+      } else if(jenis == "2"){
         return "Pertamax";
       }
       else {
@@ -20,20 +20,20 @@ class SPBU {
       }
     }
 
-    int hitungPembelian(int jumlahLiter, int jenisBensin){
+    int hitungPembelian(int jumlahLiter, string jenisBensin){
       int pertalite = 7000, pertamax = 9000;
       int harga = 0;
-      if(jenisBensin == 1){
+      if(jenisBensin == "1"){
         harga = jumlahLiter * pertalite;
-      } else if(jenisBensin == 2){
+      } else if(jenisBensin == "2"){
         harga = jumlahLiter * pertamax;
       }
       return harga;
     }
 
   private:
-  int liter, jenisBensin, totalHarga;
-  string nama;
+  int liter, totalHarga; 
+  string nama, jenisBensin;
 };
 
 SPBU::SPBU() {
@@ -51,11 +51,11 @@ istream& operator >>(istream& in, SPBU& oplos) {
   do {
     cout << "Pilih Jenis Bensin (1 = Pertalite, 2 = Pertamax): ";
     in >> oplos.jenisBensin;
-    if (oplos.jenisBensin != 1 && oplos.jenisBensin != 2) {
+    if (oplos.jenisBensin != "1" && oplos.jenisBensin != "2") {
       cout << "Jenis bensin tidak valid, silahkan pilih ulang!" << endl;
       cout << endl;
     }
-  } while (oplos.jenisBensin != 1 && oplos.jenisBensin != 2);
+  } while (oplos.jenisBensin != "1" && oplos.jenisBensin != "2");
   
     cout << "Masukkan Jumlah Liter: ";
     in >> oplos.liter;
